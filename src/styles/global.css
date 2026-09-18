@@ -194,7 +194,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   border: 1px solid rgba(155,182,255,.35);
   box-shadow: inset 0 1px 2px rgba(255,255,255,.85);
 }
-.section-title-wrap h2 { margin: 0; font-size: 14px; font-weight: 650; letter-spacing: -.3px; color: #363b45; }
+.section-title-wrap h2 { margin: 0; font-size: 16px; font-weight: 650; letter-spacing: -.3px; color: #363b45; }
 .section-dot { color: #9a9da4; font-size: 14px; }
 .section-meta { color: #747a83; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .primary-pill {
@@ -263,16 +263,17 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .region-dot.indigo { background: #3958ec; }
 
 .driver-list { margin-top: 20px; display: flex; flex-direction: column; gap: 11px; }
-.driver-row { display: grid; grid-template-columns: 39px 1fr 1.65fr 44px; gap: 10px; align-items: center; }
-.driver-icon { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 9px; background: rgba(255,255,255,.7); }
+.driver-row { display: grid; grid-template-columns: 37px minmax(120px, 1fr) minmax(170px, 1.65fr) 44px; gap: 10px; align-items: center; min-height: 37px; }
+.driver-icon { width: 37px; height: 37px; display: grid; place-items: center; border-radius: 9px; background: rgba(255,255,255,.78); overflow: hidden; }
+.driver-icon img { width: 20px; height: 20px; object-fit: contain; display: block; }
 .driver-icon.violet { color: #9c7cff; }
 .driver-icon.blue { color: #64a2ff; }
 .driver-icon.amber { color: #f2a75d; }
 .driver-icon.green { color: #61d948; }
-.driver-name { color: #555b64; font-size: 13px; }
-.driver-track { height: 17px; border-radius: 10px; background: rgba(255,255,255,.72); overflow: hidden; }
+.driver-name { color: #555b64; font-size: 15px; line-height: 1.2; font-weight: 400; white-space: nowrap; }
+.driver-track { height: 17px; border-radius: 10px; background: rgba(255,255,255,.78); overflow: hidden; }
 .driver-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #9696f6, #88afea); }
-.driver-row strong { color: #2f6c3a; font-size: 12px; text-align: right; }
+.driver-row strong { color: #2f6c3a; font-size: 12px; line-height: 1; font-weight: 600; text-align: right; white-space: nowrap; }
 
 .opportunity-card-frame {
   align-self: stretch;
@@ -424,7 +425,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 .segment-card { min-height: 285px !important; padding: 16px 17px !important; }
 .segment-card .section-header { height: 34px; }
-.segment-card .section-title-wrap h2 { font-size: 14px; font-weight: 600; }
+.segment-card .section-title-wrap h2 { font-size: 16px; font-weight: 600; }
 .segment-card .section-meta { font-size: 11px; font-weight: 400; }
 .section-arrow { font-size: 20px; line-height: 1; transform: translateY(-1px); }
 
@@ -626,9 +627,9 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   .growth-content { grid-template-columns: 1fr; height: auto; }
   .india-map { height: 210px; }
   .region-list { padding: 0 8px 15px; }
-  .driver-row { grid-template-columns: 34px 1fr 1fr 38px; gap: 7px; }
-  .driver-icon { width: 34px; height: 34px; }
-  .driver-name { font-size: 11px; }
+  .driver-row { grid-template-columns: 37px minmax(90px, 1fr) minmax(110px, 1fr) 38px; gap: 7px; }
+  .driver-icon { width: 37px; height: 37px; }
+  .driver-name { font-size: 13px; }
   .segment-content { grid-template-columns: 60px 1fr; }
   .segment-avatar { width: 60px; height: 60px; }
   .segment-revenue { grid-column: 2; margin-top: 4px; }
@@ -742,7 +743,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 /* v1.3 — Opportunity card fidelity pass */
 .opportunity-card .section-title-wrap h2 {
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   font-weight: 600;
   letter-spacing: -0.25px;
