@@ -1,6 +1,7 @@
 import React from "react";
 import GlassCard from "../common/GlassCard";
 import { dashboardData } from "../../data/dashboardData";
+import AIAnimation from "./AIAnimation";
 
 const ASSET = "/assets/";
 const kpiIcons = {
@@ -25,7 +26,7 @@ export default function AIInsightsCard() {
       <div className="insight-content">
         <div className="insight-topline">
           <div className="section-title-wrap">
-            <span className="section-icon ai-star" aria-hidden="true"><span>✦</span></span>
+            <span className="section-icon ai-star" aria-hidden="true"><AIAnimation /></span>
             <h2>AI Insights</h2><span className="section-dot">•</span>
             <span className="section-meta">Real-time user activity and trend insights</span>
           </div>
