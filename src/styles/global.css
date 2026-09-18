@@ -1009,16 +1009,16 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 .nav {
   gap: 0px;
-  padding: 0 3px;
+  padding: 0 0px;
 }
 
 .nav-group {
-  margin-top: 0;
+  margin-top: 0px;
 }
 
 .nav-label {
-  margin-top: 12px;
-  padding: 0 0 10px;
+  margin-top: 2px;
+  padding: 0 0 2px;
   font-size: 9px;
   line-height: 12px;
   letter-spacing: 1.4px;
