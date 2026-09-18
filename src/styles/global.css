@@ -147,7 +147,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .menu-button, .mobile-close { display: none; }
 
 .page-container { padding: 0 18px 28px 0; }
-.dashboard-page { display: flex; flex-direction: column; gap: 18px; }
+.dashboard-page { display: flex; flex-direction: column; gap: 12px; }
 
 .glass-card {
   position: relative;
