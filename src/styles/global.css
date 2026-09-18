@@ -159,7 +159,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   border-radius: var(--radius-xl);
 }
 
-.insight-card { min-height: 316px; border-color: rgba(151, 183, 255, .45); }
+.insight-card { min-height: 264px; border-color: rgba(151, 183, 255, .45); }
 .insight-card::before {
   content: "";
   position: absolute;
@@ -205,7 +205,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 }
 .insight-copy { margin: 12px 0 10px; }
 .insight-copy h1 {
-  max-width: 720px; margin: 0; font-size: 24px; line-height: 1.32; font-weight: 430;
+  max-width: 820px; margin: 0; font-size: 20px; line-height: 1.42; font-weight: 500;
   letter-spacing: -.75px; color: #343841;
 }
 .insight-copy h1 span { color: #1f4cd4; font-weight: 520; }
@@ -213,33 +213,20 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 10px; }
 .kpi-card {
-  position: relative; min-height: 129px; overflow: hidden;
+  position: relative; min-height: 108px; overflow: hidden;
   border: 1px solid rgba(255,255,255,.8); border-radius: 17px;
   background: rgba(255,255,255,.30);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.85);
   padding: 13px 15px;
 }
-.kpi-card::after {
-  content: ""; position: absolute; width: 105px; height: 105px; right: -20px; bottom: -48px;
-  border-radius: 50%; filter: blur(15px); opacity: .28;
-}
-.kpi-blue::after { background: #74a9ff; }
-.kpi-violet::after { background: #b17bff; }
-.kpi-cyan::after { background: #5be0db; }
-.kpi-amber::after { background: #ffc66a; }
 .kpi-top { display: flex; justify-content: space-between; align-items: center; }
-.kpi-symbol { width: 29px; height: 29px; border-radius: 8px; display: grid; place-items: center; color: #2461e7; background: rgba(255,255,255,.72); }
+.kpi-symbol { width: 31px; height: 31px; border-radius: 8px; display: grid; place-items: center; color: #2461e7; background: rgba(255,255,255,.80); border: 1px solid rgba(255,255,255,.72); box-shadow: inset 0 1px 0 rgba(255,255,255,.95); }
+.kpi-symbol img { width: 18px; height: 18px; object-fit: contain; display: block; }
 .kpi-change { color: #15955d; font-size: 10px; white-space: nowrap; }
 .kpi-change small { color: #737b86; font-size: 9px; margin-left: 2px; }
-.kpi-label { margin-top: 12px; font-size: 11px; color: #7c8390; }
+.kpi-label { margin-top: 11px; font-size: 11px; color: #7c8390; }
 .kpi-value { margin-top: 5px; font-size: 24px; line-height: 1; letter-spacing: -.8px; font-weight: 550; color: #3a3e47; }
-.kpi-spark { position: absolute; right: 17px; bottom: 17px; width: 74px; height: 48px; }
-.kpi-spark span { position: absolute; display: block; width: 1px; bottom: 0; background: currentColor; opacity: .18; }
-.kpi-spark span:nth-child(1) { left: 8px; height: 15px; }
-.kpi-spark span:nth-child(2) { left: 34px; height: 25px; }
-.kpi-spark span:nth-child(3) { left: 61px; height: 43px; border-radius: 20px; }
-.spark-up { color: #3f77ff; transform: skewY(-16deg); }
-.spark-flat { color: #55c8cb; transform: skewY(-2deg); }
+.kpi-spark { position: absolute; right: 8px; bottom: 7px; width: 106px; height: 81px; object-fit: contain; display: block; pointer-events: none; }
 
 .dashboard-grid { display: grid; gap: 18px; }
 .dashboard-grid-top { grid-template-columns: minmax(0, 1.2fr) minmax(390px, .8fr); }
@@ -621,7 +608,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   .page-container { padding: 0 12px 24px; }
   .insight-card { min-height: auto; }
   .insight-topline .section-meta, .section-meta { display: none; }
-  .insight-copy h1 { font-size: 21px; }
+  .insight-copy h1 { font-size: 20px; }
   .insight-copy p { font-size: 13px; }
   .kpi-grid { grid-template-columns: 1fr 1fr; }
   .growth-content { grid-template-columns: 1fr; height: auto; }

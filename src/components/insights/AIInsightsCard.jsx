@@ -10,6 +10,13 @@ const kpiIcons = {
   "Marketing ROI": "kpi-marketing-roi.png"
 };
 
+const kpiSparkAssets = {
+  blue: "/assets/kpi-spark-blue.png",
+  violet: "/assets/kpi-spark-violet.png",
+  cyan: "/assets/kpi-spark-cyan.png",
+  amber: "/assets/kpi-spark-amber.png"
+};
+
 export default function AIInsightsCard() {
   const { insight } = dashboardData;
   return (
@@ -44,6 +51,6 @@ function KPICard({ label, value, change, period, tone, spark }) {
     </div>
     <div className="kpi-label">{label}</div>
     <div className="kpi-value">{value}</div>
-    <div className={`kpi-spark spark-${spark}`} aria-hidden="true"><span /><span /><span /></div>
+    <img className="kpi-spark" src={kpiSparkAssets[tone]} alt="" aria-hidden="true" />
   </div>;
 }
