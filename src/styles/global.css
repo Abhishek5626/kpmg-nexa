@@ -966,3 +966,40 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     row-gap: 18px;
   }
 }
+
+/* v1.9 — proportional bottom layout + Figma-tight card padding */
+.dashboard-grid-bottom {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+  align-items: start;
+}
+
+.dashboard-grid-bottom > .glass-frame > .glass-card {
+  padding: 14px !important;
+}
+
+.dashboard-grid-bottom .opportunity-card-frame > .opportunity-card {
+  height: 285px;
+  min-height: 0 !important;
+}
+
+.dashboard-grid-bottom .segment-card {
+  height: 285px;
+  min-height: 0 !important;
+}
+
+/* Keep the segment card's content vertically tight so the 14px bottom
+   padding is the only space below the last metric row. */
+.dashboard-grid-bottom .segment-card .segment-metrics {
+  min-height: 111px;
+}
+
+@media (max-width: 1180px) {
+  .dashboard-grid-bottom { grid-template-columns: 1fr; }
+  .dashboard-grid-bottom > .glass-frame > .glass-card {
+    height: auto;
+    min-height: 285px !important;
+  }
+  .dashboard-grid-bottom .segment-card .segment-metrics {
+    min-height: 127px;
+  }
+}
