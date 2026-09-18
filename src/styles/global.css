@@ -700,8 +700,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .nav-icon { width: 26px; height: 26px; }
 .nav-icon img { width: 26px; height: 26px; object-fit: contain; display:block; }
 .nav-item.active { background: linear-gradient(100deg, rgba(255,255,255,.72), rgba(222,218,255,.56)); }
-.nav-label { margin-top: 12px; padding-left: 4px; font-size: 10px; letter-spacing: 1.1px; }
-.nav-group { margin-top: 0; }
+.nav-label { margin-top: 2px; padding-left: 4px; font-size: 8px; letter-spacing: 1.2px; }
+.nav-group { margin-top: 0px; }
 .brand { padding: 0 2px 20px; }
 .brand-name { font-size: 21px; color:#4e63e3; }
 .brand-subtitle { font-size:10px; color:#a3a7ae; margin-top:6px; }
