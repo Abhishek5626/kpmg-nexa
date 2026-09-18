@@ -194,7 +194,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   border: 1px solid rgba(155,182,255,.35);
   box-shadow: inset 0 1px 2px rgba(255,255,255,.85);
 }
-.section-title-wrap h2 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -.3px; color: #363b45; }
+.section-title-wrap h2 { margin: 0; font-size: 16px; font-weight: 650; letter-spacing: -.3px; color: #363b45; }
 .section-dot { color: #9a9da4; font-size: 14px; }
 .section-meta { color: #747a83; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .primary-pill {
@@ -412,7 +412,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 .segment-card { min-height: 285px !important; padding: 16px 17px !important; }
 .segment-card .section-header { height: 34px; }
-.segment-card .section-title-wrap h2 { font-size: 15px; font-weight: 600; }
+.segment-card .section-title-wrap h2 { font-size: 16px; font-weight: 600; }
 .segment-card .section-meta { font-size: 11px; font-weight: 400; }
 .section-arrow { font-size: 20px; line-height: 1; transform: translateY(-1px); }
 
@@ -701,7 +701,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .nav-icon img { width: 26px; height: 26px; object-fit: contain; display:block; }
 .nav-item.active { background: linear-gradient(100deg, rgba(255,255,255,.72), rgba(222,218,255,.56)); }
 .nav-label { margin-top: 4px; padding-left: 4px; font-size: 8px; letter-spacing: 1.4px; }
-.nav-group { margin-top: 0px; }
+.nav-group { margin-top: 0; }
 .brand { padding: 0 2px 20px; }
 .brand-name { font-size: 21px; color:#4e63e3; }
 .brand-subtitle { font-size:10px; color:#a3a7ae; margin-top:6px; }
@@ -730,7 +730,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 /* v1.3 — Opportunity card fidelity pass */
 .opportunity-card .section-title-wrap h2 {
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 20px;
   font-weight: 600;
   letter-spacing: -0.25px;
@@ -1008,15 +1008,17 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 }
 
 .nav {
-  padding: 0 0px;
+  gap: 0;
+  padding: 0 3px;
 }
 
 .nav-group {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .nav-label {
-  padding: 0 0 2px;
+  margin-top: 4px;
+  padding: 0 0 10px;
   font-size: 8px;
   line-height: 12px;
   letter-spacing: 1.4px;
@@ -1395,4 +1397,284 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   .insight-card::before {
     animation-duration: 28s;
   }
+}
+
+/* v2.7 — Topbar glass controls and spacing fidelity */
+
+/* v2.7 — Topbar glass controls and spacing fidelity */
+.topbar {
+  padding: 0 6px;
+  gap: 6px;
+}
+
+.breadcrumb-home {
+  gap: 11px;
+}
+
+.topbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.greeting {
+  gap: 7px;
+  margin-right: 4px;
+}
+
+.topbar-glass-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: 2px;
+  border: 1px solid rgba(255,255,255,.78);
+  background: linear-gradient(145deg, rgba(255,255,255,.90), rgba(184,211,250,.38) 52%, rgba(255,255,255,.86));
+  box-shadow: 0 5px 18px rgba(94,128,181,.08), inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  color: inherit;
+}
+
+.topbar-glass-inner {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.66);
+  background: linear-gradient(145deg, rgba(255,255,255,.55), rgba(244,248,255,.34));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.92);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+}
+
+.home-glass {
+  width: 86px;
+  height: 86px;
+  border-radius: 20px;
+}
+
+.home-glass .topbar-glass-inner {
+  border-radius: 16px;
+}
+
+.home-glass img {
+  width: 43px;
+  height: 33px;
+  object-fit: contain;
+  display: block;
+}
+
+.weather-glass {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.weather-glass .topbar-glass-inner {
+  border-radius: 50%;
+}
+
+.weather-glass img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+.notification-glass {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.notification-glass .topbar-glass-inner {
+  border-radius: 50%;
+}
+
+.notification-glass img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.profile-glass {
+  width: 142px;
+  height: 84px;
+  border-radius: 44px;
+  padding: 2px;
+  display: flex;
+  cursor: pointer;
+}
+
+.profile-glass .topbar-glass-inner {
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 17px 0 7px;
+  color: #27334c;
+}
+
+.avatar-inner {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(225,219,255,.96), rgba(211,202,255,.84));
+  border: 1px solid rgba(255,255,255,.72);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.92);
+  color: #5149a9;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.profile-glass svg {
+  color: #101828;
+}
+
+/* Hide the legacy topbar icon rules so the supplied artwork controls sizing. */
+.weather-sun,
+.circle-button,
+.profile-button {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .home-glass { width: 70px; height: 70px; border-radius: 17px; }
+  .home-glass .topbar-glass-inner { border-radius: 14px; }
+  .weather-glass { width: 66px; height: 66px; }
+  .weather-glass img { width: 64px; height: 64px; }
+  .notification-glass { width: 68px; height: 68px; }
+  .profile-glass { width: 118px; height: 68px; }
+  .avatar-inner { width: 48px; height: 48px; font-size: 17px; }
+}
+
+@media (max-width: 760px) {
+  .topbar { padding: 0 6px; }
+  .topbar-right { gap: 2px; }
+  .greeting { display: none; }
+  .home-glass { width: 58px; height: 58px; }
+  .home-glass img { width: 34px; height: 26px; }
+  .weather-glass { width: 58px; height: 58px; }
+  .weather-glass img { width: 56px; height: 56px; }
+  .notification-glass { width: 58px; height: 58px; }
+  .notification-glass img { width: 38px; height: 38px; }
+  .profile-glass { width: 96px; height: 58px; }
+  .avatar-inner { width: 42px; height: 42px; font-size: 14px; }
+}
+
+/* v2.8 — Topbar Figma sizing: 50px outer / 44px inner / 24px icon */
+.topbar-glass-frame {
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.topbar-glass-inner {
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.topbar-glass-icon {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+}
+
+.topbar-glass-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.home-glass {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+}
+
+.home-glass .topbar-glass-inner {
+  border-radius: 11px;
+}
+
+.home-glass .topbar-glass-icon img {
+  width: 24px;
+  height: auto;
+}
+
+.weather-glass,
+.notification-glass {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.weather-glass img,
+.notification-glass img {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-glass {
+  width: 88px;
+  height: 50px;
+  border-radius: 27px;
+  padding: 3px;
+}
+
+.profile-glass .topbar-glass-inner {
+  width: 82px;
+  height: 44px;
+  border-radius: 23px;
+  padding: 0 8px 0 5px;
+}
+
+.avatar-inner {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+.profile-glass svg {
+  width: 14px;
+  height: 14px;
+}
+
+.breadcrumb-home {
+  gap: 9px;
+}
+
+.topbar-right {
+  gap: 2px;
+}
+
+@media (max-width: 1180px) {
+  .topbar-glass-frame { width: 50px; height: 50px; }
+  .topbar-glass-inner { width: 44px; height: 44px; }
+  .home-glass { width: 50px; height: 50px; }
+  .weather-glass, .notification-glass { width: 50px; height: 50px; }
+  .profile-glass { width: 88px; height: 50px; }
+  .profile-glass .topbar-glass-inner { width: 82px; height: 44px; }
+  .avatar-inner { width: 32px; height: 32px; font-size: 14px; }
+}
+
+@media (max-width: 760px) {
+  .topbar { padding: 0 6px; }
+  .topbar-right { gap: 2px; }
+  .home-glass, .weather-glass, .notification-glass { width: 50px; height: 50px; }
+  .profile-glass { width: 88px; height: 50px; }
 }
