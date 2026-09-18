@@ -1,0 +1,2 @@
+import React from "react";
+import GlassCard from "../components/common/GlassCard";export default function PlaceholderPage({title,eyebrow}){return <div className="placeholder-page"><GlassCard className="placeholder-card"><span className="placeholder-icon">◈</span><div><div className="placeholder-eyebrow">{eyebrow}</div><h1>{title}</h1><p>This route is ready for its own page-level components and backend data contract.</p></div><span className="placeholder-spark">✦</span></GlassCard></div>}

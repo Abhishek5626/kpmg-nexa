@@ -1,0 +1,4 @@
+import React from "react";
+import GlassCard from "../common/GlassCard";import SectionHeader from "../common/SectionHeader";import {dashboardData} from "../../data/dashboardData";
+const marks={wallet:"▰",user:"●",card:"▭",briefcase:"▣",home:"⌂"};
+export default function CategoryDriversCard(){return <GlassCard className="drivers-card"><SectionHeader icon={<span className="header-arrow">↗</span>} title="What's driving the Growth" meta="Top Categories for CX growth" action="See All"/><div className="driver-list">{dashboardData.drivers.map(d=><div className="driver-row" key={d.name}><span className={`driver-icon ${d.tone}`}>{marks[d.icon]}</span><span className="driver-name">{d.name}</span><div className="driver-track"><span style={{width:`${d.value}%`}}/></div><strong>{d.change}</strong></div>)}</div></GlassCard>}

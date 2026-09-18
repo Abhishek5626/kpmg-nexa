@@ -1,0 +1,23 @@
+{
+  "sidebar": {
+    "home": "nav-home.png",
+    "people": "nav-people.png",
+    "consumers": "nav-consumers.png",
+    "journey": "nav-journey.png",
+    "market": "nav-market.png",
+    "competition": "nav-competition.png",
+    "opportunities": "nav-opportunities.png"
+  },
+  "kpis": {
+    "total": "kpi-total-consumers.png",
+    "active": "kpi-active-customers.png",
+    "conversion": "kpi-campaign-conversion.png",
+    "roi": "kpi-marketing-roi.png"
+  },
+  "dashboard": {
+    "map": "india-growth-map.png",
+    "demand": "metric-demand-growth.png",
+    "revenue": "metric-revenue.png",
+    "opportunity": "opportunity-product.png"
+  }
+}

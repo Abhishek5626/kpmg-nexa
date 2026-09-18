@@ -1,0 +1,2 @@
+import React from "react";
+export default function SectionHeader({icon,title,meta,action,dropdown}){return <div className="section-header"><div className="section-title-wrap"><span className="section-icon">{icon}</span><h2>{title}</h2>{meta&&<><span className="section-dot">•</span><span className="section-meta">{meta}</span></>}</div>{dropdown&&<button className="text-action">{dropdown}<span>⌄</span></button>}{action&&<button className="text-action">{action}<span>↗</span></button>}</div>}
