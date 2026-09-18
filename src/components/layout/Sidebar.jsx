@@ -46,7 +46,7 @@ export default function Sidebar({ open, onClose, currentPath = "/" }) {
             ))}
           </nav>
           <div className="sidebar-footer">
-            <div className="sidebar-art" aria-hidden="true" />
+            <img className="sidebar-art" src="/assets/sidebar-ambient-art.png" alt="" aria-hidden="true" />
             <div className="footer-copy">From insights<br />to impact.</div>
             <div className="footer-rule" />
             <div className="kpmg-wordmark">KPMG</div>
