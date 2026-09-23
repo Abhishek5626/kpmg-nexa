@@ -5,10 +5,10 @@ import AIAnimation from "./AIAnimation";
 
 const ASSET = "/assets/";
 const kpiIcons = {
-  "Total Consumers": "kpi-total-consumers.png",
-  "Active Customers": "kpi-active-customers.png",
-  "Campaign Conversion": "kpi-campaign-conversion.png",
-  "Marketing ROI": "kpi-marketing-roi.png"
+  "Total Consumers": "metric-target-consumers.svg",
+  "Active Customers": "metric-demand-growth.svg",
+  "Campaign Conversion": "metric-competitive.svg",
+  "Marketing ROI": "metric-opportunity.svg"
 };
 
 const kpiSparkAssets = {
@@ -22,7 +22,11 @@ export default function AIInsightsCard() {
   const { insight } = dashboardData;
   return (
     <GlassCard className="insight-card">
-      <div className="animated-border" aria-hidden="true" />
+      <div className="insight-blobs" aria-hidden="true">
+        <span className="insight-blob insight-blob-a" />
+        <span className="insight-blob insight-blob-b" />
+        <span className="insight-blob insight-blob-c" />
+      </div>
       <div className="insight-content">
         <div className="insight-topline">
           <div className="section-title-wrap">
@@ -30,7 +34,10 @@ export default function AIInsightsCard() {
             <h2>AI Insights</h2><span className="section-dot">•</span>
             <span className="section-meta">Real-time user activity and trend insights</span>
           </div>
-          <button className="primary-pill">Explore Opportunity <span>→</span></button>
+          <button className="primary-pill">
+            Explore Opportunity
+            <img className="figma-action-arrow" src="/assets/opp-see-all-arrow.svg" alt="" width={12} height={12} />
+          </button>
         </div>
         <div className="insight-copy">
           <h1 className="shimmer-text">{insight.title} <span>{insight.highlight}</span> {insight.suffix}</h1>

@@ -521,13 +521,19 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   transition: transform .46s cubic-bezier(.2,.8,.2,1), opacity .32s ease;
 }
 .ai-dock.is-visible { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
+@property --chat-stroke-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
 .ai-dock-border {
   position: absolute; inset: -1px; border-radius: 22px;
   padding: 1px;
-  background: conic-gradient(from 0deg, rgba(124,142,255,.08), rgba(151,125,255,.78), rgba(97,201,255,.15), rgba(255,255,255,.9), rgba(124,142,255,.08));
-  background-size: 100% 100%;
+  pointer-events: none;
+  background: conic-gradient(from var(--chat-stroke-angle), rgba(124,142,255,.08), rgba(151,125,255,.78), rgba(97,201,255,.15), rgba(255,255,255,.9), rgba(124,142,255,.08));
   animation: chatStroke 5s linear infinite;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
 }
 .ai-dock-inner {
@@ -578,7 +584,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   50% { background-position: 100% 50%; opacity: 1; }
 }
 @keyframes chatStroke {
-  to { transform: rotate(360deg); }
+  to { --chat-stroke-angle: 360deg; }
 }
 @keyframes floatOrb {
   from { transform: translate3d(0,0,0) scale(1); }
@@ -1677,4 +1683,1028 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   .topbar-right { gap: 2px; }
   .home-glass, .weather-glass, .notification-glass { width: 50px; height: 50px; }
   .profile-glass { width: 88px; height: 50px; }
+}
+
+/* v2.9 — Opportunity card Figma fidelity (node 189:1633) */
+.opportunity-card-frame {
+  border-radius: 18px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow: 0 12px 38px rgba(77, 108, 168, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.opportunity-card-frame::before {
+  display: none;
+}
+
+.opportunity-card-frame > .opportunity-card {
+  height: 279px;
+  min-height: 0 !important;
+  padding: 14px !important;
+  border-radius: 18px;
+  border: 0;
+  background: linear-gradient(
+    129deg,
+    rgba(253, 253, 253, 0.66) 8.08%,
+    rgba(241, 245, 253, 0.66) 57.08%,
+    rgba(243, 247, 254, 0.66) 116.26%
+  );
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opportunity-card .section-header {
+  height: 32px;
+  flex: 0 0 auto;
+}
+
+.opportunity-card .section-title-wrap {
+  gap: 8px;
+}
+
+.opportunity-card .section-title-wrap > .section-icon + h2 {
+  margin-left: 0;
+}
+
+.opportunity-card .section-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-right: 4px; /* with 8px wrap gap → 12px to title */
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid #dddcfa;
+  box-shadow: none;
+}
+
+.opportunity-card .opp-header-icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.opportunity-card .section-title-wrap h2 {
+  color: #434343;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+
+.opportunity-card .section-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  color: transparent;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.opportunity-card .section-meta {
+  color: #706c6c;
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.opportunity-card .text-action {
+  gap: 4px;
+  color: #2359bf;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+}
+
+.opportunity-card .text-action-icon {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.opportunity-card .opp-see-all-arrow {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+.opportunity-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  height: 207px;
+  margin-top: 0;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+}
+
+.opportunity-card .product-image {
+  flex: 0 0 162px;
+  width: 162px;
+  height: 207px;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid #f6f6f6;
+  background: #e8eee9;
+}
+
+.opportunity-card .product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.opportunity-copy {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 18px;
+  max-width: none;
+}
+
+.opportunity-copy-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.opportunity-card .opportunity-copy h3 {
+  margin: 0;
+  color: #434343;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.36px;
+}
+
+.opportunity-card .opportunity-copy p {
+  margin: 0;
+  max-width: none;
+  color: #434343;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+
+.opportunity-card .opportunity-copy .opp-desc-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.opportunity-card .opportunity-stats {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin-top: 0;
+  gap: 0;
+  flex: 0 0 auto;
+}
+
+.opportunity-card .opportunity-metric-divider {
+  flex: 0 0 1px;
+  width: 1px;
+  height: 81px;
+  margin: 0;
+  background: rgba(129, 139, 158, 0.22);
+  align-self: flex-start;
+}
+
+.opportunity-card .opportunity-metric {
+  flex: 1 1 0%;
+  width: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 14px;
+  border-left: 0;
+}
+
+.opportunity-card .opportunity-metric:first-child {
+  padding-left: 0;
+}
+
+.opportunity-card .opportunity-metric:last-child {
+  padding-right: 0;
+}
+
+.opportunity-card .metric-icon-box {
+  width: 47px;
+  height: 47px;
+  min-width: 47px;
+  min-height: 47px;
+  flex: 0 0 47px;
+  border-radius: 8.677px;
+  background: #f3f6ff;
+  box-shadow: none;
+}
+
+.opportunity-card .metric-icon-box img {
+  width: auto;
+  height: auto;
+  max-width: 30.4px;
+  max-height: 23.47px;
+}
+
+.opportunity-card .metric-copy {
+  margin-top: 0;
+  gap: 4px;
+}
+
+.opportunity-card .metric-copy .metric-value {
+  color: #434343;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+
+.opportunity-card .metric-copy .metric-label {
+  margin: 0;
+  color: #434343;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.dashboard-grid-bottom .opportunity-card-frame > .opportunity-card {
+  height: 279px;
+}
+
+@media (max-width: 1180px) {
+  .dashboard-grid-bottom .opportunity-card-frame > .opportunity-card {
+    height: auto;
+    min-height: 279px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .opportunity-content {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .opportunity-card .product-image {
+    width: 100%;
+    max-width: 220px;
+    height: 180px;
+  }
+
+  .opportunity-card .opportunity-stats {
+    flex-wrap: wrap;
+    row-gap: 18px;
+  }
+
+  .opportunity-card .opportunity-metric-divider {
+    display: none;
+  }
+
+  .opportunity-card .opportunity-metric {
+    flex: 1 1 40%;
+  }
+
+  .opportunity-card .metric-copy .metric-label {
+    white-space: normal;
+  }
+}
+
+/* v2.10 — Top Segment reuses Opportunity Figma chrome + flex fill */
+.segment-card-frame {
+  border-radius: 18px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow: 0 12px 38px rgba(77, 108, 168, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.segment-card-frame::before {
+  display: none;
+}
+
+.dashboard-grid-bottom .segment-card-frame > .segment-card,
+.segment-card-frame > .segment-card {
+  height: 279px;
+  min-height: 0 !important;
+  padding: 14px !important;
+  border-radius: 18px;
+  border: 0;
+  background: linear-gradient(
+    129deg,
+    rgba(253, 253, 253, 0.66) 8.08%,
+    rgba(241, 245, 253, 0.66) 57.08%,
+    rgba(243, 247, 254, 0.66) 116.26%
+  );
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.segment-card .section-header {
+  height: 32px;
+  flex: 0 0 auto;
+}
+
+.segment-card .section-title-wrap {
+  gap: 8px;
+}
+
+.segment-card .section-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-right: 4px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid #dddcfa;
+  box-shadow: none;
+}
+
+.segment-card .opp-header-icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.segment-card .section-title-wrap h2 {
+  color: #434343;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+
+.segment-card .section-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  color: transparent;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.segment-card .section-meta {
+  color: #706c6c;
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 400;
+}
+
+.segment-card .text-action {
+  gap: 4px;
+  color: #2359bf;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+}
+
+.segment-card .text-action-icon {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.segment-card .opp-see-all-arrow {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+.segment-card .segment-hero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.segment-card .segment-profile-tile {
+  flex: 0 0 83px;
+  width: 83px;
+  height: 83px;
+  border-radius: 16px;
+  background: #f3f6ff;
+  border: 1px solid #f6f6f6;
+  box-shadow: none;
+}
+
+.segment-card .segment-identity h3 {
+  margin: 0 0 4px;
+  color: #434343;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.36px;
+}
+
+.segment-card .segment-identity p {
+  margin: 0;
+  color: #434343;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+}
+
+.segment-card .segment-metrics {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.segment-card .segment-metric-divider {
+  flex: 0 0 1px;
+  width: 1px;
+  height: 81px;
+  margin: 0;
+  background: rgba(129, 139, 158, 0.22);
+  align-self: flex-start;
+}
+
+.segment-card .segment-metrics .opportunity-metric {
+  flex: 1 1 0%;
+  width: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 0 14px;
+}
+
+.segment-card .segment-metrics .opportunity-metric:first-child {
+  padding-left: 0;
+}
+
+.segment-card .segment-metrics .opportunity-metric:last-child {
+  padding-right: 0;
+}
+
+.segment-card .metric-icon-box {
+  width: 47px;
+  height: 47px;
+  min-width: 47px;
+  min-height: 47px;
+  flex: 0 0 47px;
+  border-radius: 8.677px;
+  background: #f3f6ff;
+  border: 0;
+  box-shadow: none;
+}
+
+.segment-card .metric-icon-box img {
+  width: auto;
+  height: auto;
+  max-width: 30.4px;
+  max-height: 23.47px;
+}
+
+.segment-card .metric-copy {
+  margin-top: 0;
+  gap: 4px;
+}
+
+.segment-card .metric-copy .metric-value {
+  color: #434343;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+
+.segment-card .metric-copy .metric-label {
+  margin: 0;
+  color: #434343;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+  max-width: none;
+  white-space: normal;
+}
+
+@media (max-width: 1180px) {
+  .dashboard-grid-bottom .segment-card-frame > .segment-card {
+    height: auto;
+    min-height: 279px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .segment-card .segment-metrics {
+    flex-wrap: wrap;
+    row-gap: 18px;
+  }
+
+  .segment-card .segment-metric-divider {
+    display: none;
+  }
+
+  .segment-card .segment-metrics .opportunity-metric {
+    flex: 1 1 40%;
+  }
+}
+
+/* v2.8 — rotating insight stroke + subtle interior blobs */
+@property --insight-stroke-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.insight-card-frame {
+  isolation: isolate;
+}
+
+.insight-card-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  z-index: 4;
+  background: conic-gradient(
+    from var(--insight-stroke-angle),
+    rgba(124, 142, 255, .08),
+    rgba(151, 125, 255, .7),
+    rgba(97, 201, 255, .18),
+    rgba(255, 255, 255, .88),
+    rgba(124, 142, 255, .08)
+  );
+  animation: insightStroke 8s linear infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes insightStroke {
+  to { --insight-stroke-angle: 360deg; }
+}
+
+.insight-card {
+  overflow: hidden;
+  border-color: rgba(151, 183, 255, .22);
+}
+
+.insight-card::before {
+  content: none;
+}
+
+.insight-blobs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.insight-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(52px);
+  will-change: transform;
+}
+
+.insight-blob-a {
+  width: 360px;
+  height: 360px;
+  left: -10%;
+  top: -34%;
+  background: radial-gradient(circle, rgba(148, 172, 255, .42), transparent 70%);
+  animation: insightBlobDriftA 22s ease-in-out infinite;
+}
+
+.insight-blob-b {
+  width: 310px;
+  height: 310px;
+  right: -8%;
+  top: 4%;
+  background: radial-gradient(circle, rgba(186, 158, 255, .34), transparent 70%);
+  animation: insightBlobDriftB 26s ease-in-out infinite;
+}
+
+.insight-blob-c {
+  width: 280px;
+  height: 280px;
+  left: 28%;
+  bottom: -38%;
+  background: radial-gradient(circle, rgba(118, 208, 255, .3), transparent 70%);
+  animation: insightBlobDriftC 20s ease-in-out infinite;
+}
+
+@keyframes insightBlobDriftA {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(16%, 20%, 0) scale(1.1); }
+}
+
+@keyframes insightBlobDriftB {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.04); }
+  50% { transform: translate3d(-18%, 14%, 0) scale(1); }
+}
+
+@keyframes insightBlobDriftC {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  40% { transform: translate3d(12%, -18%, 0) scale(1.12); }
+  75% { transform: translate3d(-10%, -8%, 0) scale(.96); }
+}
+
+/* v2.11 — shared Figma chrome + flex fill on ALL dashboard cards */
+.dashboard-page > .glass-frame,
+.dashboard-grid > .glass-frame {
+  width: 100%;
+  min-width: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow: 0 12px 38px rgba(77, 108, 168, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.dashboard-page > .glass-frame::before,
+.dashboard-grid > .glass-frame::before {
+  display: none;
+}
+
+.dashboard-page > .glass-frame > .glass-card,
+.dashboard-grid > .glass-frame > .glass-card {
+  width: 100%;
+  border-radius: 18px;
+  border: 0;
+  padding: 14px !important;
+  background: linear-gradient(
+    129deg,
+    rgba(253, 253, 253, 0.66) 8.08%,
+    rgba(241, 245, 253, 0.66) 57.08%,
+    rgba(243, 247, 254, 0.66) 116.26%
+  );
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* Shared header chrome */
+.glass-card .section-header,
+.insight-card .insight-topline {
+  flex: 0 0 auto;
+  width: 100%;
+  min-width: 0;
+}
+
+.glass-card .section-title-wrap,
+.insight-card .section-title-wrap {
+  gap: 8px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.glass-card .section-icon,
+.insight-card .section-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-right: 4px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid #dddcfa;
+  box-shadow: none;
+}
+
+.glass-card .figma-header-icon,
+.glass-card .opp-header-icon,
+.insight-card .figma-header-icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.glass-card .section-title-wrap h2,
+.insight-card .section-title-wrap h2 {
+  color: #434343;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+
+.glass-card .section-dot,
+.insight-card .section-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  color: transparent;
+  font-size: 0;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.glass-card .section-meta,
+.insight-card .section-meta {
+  color: #706c6c;
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.glass-card .text-action,
+.insight-card .primary-pill {
+  gap: 4px;
+  color: #2359bf;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+}
+
+.glass-card .text-action-icon,
+.glass-card .figma-action-arrow,
+.glass-card .opp-see-all-arrow,
+.insight-card .figma-action-arrow {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.insight-card .primary-pill {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 23px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: none;
+  border: 1px solid rgba(221, 220, 250, 0.8);
+}
+
+/* AI Insights flex fill */
+.insight-card-frame > .insight-card {
+  min-height: 0;
+}
+
+.insight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+  padding: 0;
+}
+
+.insight-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.insight-copy {
+  margin: 0;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.insight-copy h1 {
+  max-width: none;
+  color: #434343;
+}
+
+.insight-copy p {
+  color: #434343;
+}
+
+.kpi-grid {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  margin-top: 0;
+  flex: 1 1 auto;
+}
+
+.kpi-card {
+  flex: 1 1 0%;
+  width: 0;
+  min-width: 0;
+}
+
+.kpi-symbol {
+  width: 47px;
+  height: 47px;
+  border-radius: 8.677px;
+  background: #f3f6ff;
+  border: 0;
+  box-shadow: none;
+}
+
+.kpi-symbol img {
+  width: auto;
+  height: auto;
+  max-width: 28px;
+  max-height: 24px;
+}
+
+.kpi-label {
+  color: #434343;
+  font-size: 12px;
+}
+
+.kpi-value {
+  color: #434343;
+}
+
+/* Growth map flex fill */
+.growth-card-frame > .growth-card {
+  min-height: 316px;
+}
+
+.growth-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 255px;
+}
+
+.growth-content .india-map {
+  flex: 1 1 0%;
+  width: 0;
+  min-width: 0;
+  height: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.growth-content .india-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.growth-content .region-list {
+  flex: 1 1 0%;
+  width: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 17px;
+}
+
+.region-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+}
+
+.region-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: #434343;
+}
+
+.region-row strong {
+  flex: 0 0 auto;
+  color: #13945a;
+}
+
+/* Drivers flex fill */
+.drivers-card-frame > .drivers-card {
+  min-height: 316px;
+}
+
+.driver-list {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 100%;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+
+.driver-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 37px;
+}
+
+.driver-icon {
+  flex: 0 0 47px;
+  width: 47px;
+  height: 47px;
+  border-radius: 8.677px;
+  background: #f3f6ff;
+  overflow: hidden;
+}
+
+.driver-icon img {
+  width: auto;
+  height: auto;
+  max-width: 28px;
+  max-height: 24px;
+}
+
+.driver-name {
+  flex: 0 1 140px;
+  min-width: 0;
+  color: #434343;
+  font-size: 15px;
+}
+
+.driver-track {
+  flex: 1 1 0%;
+  width: 0;
+  min-width: 80px;
+  height: 17px;
+}
+
+.driver-row strong {
+  flex: 0 0 auto;
+  min-width: 44px;
+  text-align: right;
+}
+
+@media (max-width: 1180px) {
+  .kpi-grid {
+    flex-wrap: wrap;
+  }
+
+  .kpi-card {
+    flex: 1 1 calc(50% - 6px);
+    width: auto;
+  }
+
+  .growth-content {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .growth-content .india-map,
+  .growth-content .region-list {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .kpi-card {
+    flex: 1 1 100%;
+  }
+
+  .driver-row {
+    flex-wrap: wrap;
+  }
+
+  .driver-track {
+    flex: 1 1 100%;
+    order: 5;
+  }
 }

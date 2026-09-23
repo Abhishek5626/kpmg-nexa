@@ -27,7 +27,7 @@ export const dashboardData = {
   ],
   opportunity: {
     title: "Premium Skincare x Tier 2 Cities",
-    description: "High demand, large addressable audience and low competitive saturation.",
+    description: "High demand, large addressable audience and low competitive penetration.",
     audience: "194K",
     revenue: "₹12.6B"
   }
