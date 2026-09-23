@@ -13,9 +13,7 @@ function GlassControl({ className = "", children, as = "div", ...props }) {
 
 function Chevron() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <img src={`${ASSET}topbar-chevron-figma.svg`} alt="" width={16} height={16} aria-hidden="true" />
   );
 }
 
@@ -31,7 +29,7 @@ export default function Topbar({ onMenu }) {
       <div className="breadcrumb-home">
         <GlassControl className="home-glass" aria-hidden="true">
           <span className="topbar-glass-icon">
-            <img src={`${ASSET}topbar-home.png`} alt="" />
+            <img src={`${ASSET}topbar-home-figma.svg`} alt="" />
           </span>
         </GlassControl>
         <span>Home</span>
@@ -45,13 +43,13 @@ export default function Topbar({ onMenu }) {
 
         <GlassControl className="weather-glass" aria-label="Weather">
           <span className="topbar-glass-icon">
-            <img src={`${ASSET}topbar-weather.png`} alt="" />
+            <img src={`${ASSET}topbar-weather-figma.svg`} alt="" />
           </span>
         </GlassControl>
 
         <GlassControl as="button" className="notification-glass" aria-label="Notifications">
           <span className="topbar-glass-icon">
-            <img src={`${ASSET}topbar-notification.png`} alt="" />
+            <img src={`${ASSET}topbar-notification-figma.svg`} alt="" />
           </span>
         </GlassControl>
 
