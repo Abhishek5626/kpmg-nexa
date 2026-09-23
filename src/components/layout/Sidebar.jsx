@@ -9,9 +9,9 @@ const groups = [
 ];
 
 const icons = {
-  home: "nav-home.png", people: "nav-people.png", consumers: "nav-consumers.png",
-  journey: "nav-journey.png", market: "nav-market.png", competition: "nav-competition.png",
-  opportunities: "nav-opportunities.png"
+  home: "sidebar-home-figma.svg", people: "sidebar-people-figma.svg", consumers: "sidebar-consumers-figma.svg",
+  journey: "sidebar-journey-figma.svg", market: "sidebar-market-figma.svg", competition: "sidebar-competition-figma.svg",
+  opportunities: "sidebar-opportunities-figma.svg"
 };
 
 function NavItem({ label, to, type, active, onClose }) {
@@ -23,16 +23,26 @@ function NavItem({ label, to, type, active, onClose }) {
   );
 }
 
-export default function Sidebar({ open, onClose, currentPath = "/" }) {
+export default function Sidebar({ open, collapsed, onToggleCollapse, onClose, currentPath = "/" }) {
   return (
     <>
       <div className={`mobile-backdrop ${open ? "is-open" : ""}`} onClick={onClose} />
-      <div className={`sidebar-frame ${open ? "is-open" : ""}`}>
+      <div className={`sidebar-frame ${open ? "is-open" : ""} ${collapsed ? "is-collapsed" : ""}`}>
         <aside className="sidebar">
           <button className="mobile-close" onClick={onClose} aria-label="Close navigation">×</button>
           <div className="brand">
-            <div className="brand-name">Nexa</div>
-            <div className="brand-subtitle">Powered by KPMG</div>
+            <div className="brand-copy">
+              <div className="brand-name">Nexa</div>
+              <div className="brand-subtitle">Powered by KPMG</div>
+            </div>
+            <button
+              className="sidebar-collapse-toggle"
+              onClick={onToggleCollapse}
+              aria-label={collapsed ? "Expand navigation" : "Collapse navigation"}
+              aria-expanded={!collapsed}
+            >
+              <span aria-hidden="true">{collapsed ? "›" : "‹"}</span>
+            </button>
           </div>
           <nav className="nav" aria-label="Primary navigation">
             <NavItem label="Home" to="/" type="home" active={currentPath === "/"} onClose={onClose} />
@@ -47,9 +57,9 @@ export default function Sidebar({ open, onClose, currentPath = "/" }) {
           </nav>
           <div className="sidebar-footer">
             <img className="sidebar-art" src="/assets/sidebar-ambient-art.png" alt="" aria-hidden="true" />
-            <div className="footer-copy">From insights<br />to impact.</div>
+            <div className="footer-copy">From insights<br />to Impact.</div>
             <div className="footer-rule" />
-            <div className="kpmg-wordmark">KPMG</div>
+            <img className="kpmg-wordmark" src={`${ASSET}sidebar-kpmg-figma.svg`} alt="KPMG" />
           </div>
         </aside>
       </div>
